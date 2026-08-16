@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from html import escape as html_escape
 from pathlib import Path
 from typing import Any
@@ -1176,7 +1176,7 @@ def build_view_data(input_dir: str | Path, taxonomy_path: str | Path | None = No
     return {
         "title": report_title,
         "latest": advisor.get("latest_date"),
-        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M"),
+        "generated_at": datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d %H:%M"),
         "conclusion": conclusion,
         "conclusion_color": conclusion_color,
         "scores": advisor.get("scores", {}),
