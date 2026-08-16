@@ -6,9 +6,9 @@ on:
     paths:
       - 'workspace/data/宽基得分.csv'
   schedule:
-    # 每个工作日 17:30 北京时间（09:30 UTC）兜底跑一次
-    # 注意：GitHub 定时任务排队可能有数分钟延迟，属正常现象
-    - cron: '30 9 * * 1-5'
+    # 每天凌晨 03:00 北京时间（UTC 前一天 19:00）
+    # 注意：GitHub 定时任务排队可能延迟几分钟到十几分钟，属正常现象
+    - cron: '0 19 * * *'
   workflow_dispatch:
 
 # 结果需要提交回 main，并发布 GitHub Pages
@@ -36,18 +36,47 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.lock.txt
 
-      # runtime 里 matplotlib 字体配置为 ["Microsoft YaHei", "SimHei", "Noto Sans SC"]，
-      # Ubuntu 默认没有这些字体，需安装 Noto Sans SC 并清掉 matplotlib 字体缓存，
-      # 否则 PNG 图表中文会变成方块。
+      # runtime 里有两处字体配置：baseline_score_strategy.py 用 ["Microsoft YaHei", "SimHei", "Noto Sans SC"]，
+      # plotting.py 只用 ["SimHei"]。Ubuntu 上这些字体都没有。
+      # 这里安装 Noto Sans SC，并用 fonttools 复制一份把字族名改成 SimHei
+      # （Noto 是 OFL 协议，允许改名后再分发），否则 PNG 图表里的中文全是方块。
       - name: Install Chinese fonts for matplotlib
         run: |
+          set -e
+          pip install fonttools
           mkdir -p "$HOME/.local/share/fonts"
           curl -fsSL -o "$HOME/.local/share/fonts/NotoSansSC-Regular.otf" \
             https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
-          curl -fsSL -o "$HOME/.local/share/fonts/NotoSansSC-Bold.otf" \
-            https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/SubsetOTF/SC/NotoSansSC-Bold.otf
+          python - <<'EOF'
+          import os
+          from fontTools.ttLib import TTFont
+          src = os.path.expanduser("~/.local/share/fonts/NotoSansSC-Regular.otf")
+          dst = os.path.expanduser("~/.local/share/fonts/SimHei.otf")
+          font = TTFont(src)
+          for rec in font["name"].names:
+              if rec.nameID in (1, 3, 4, 6, 16):
+                  rec.string = "SimHei".encode(rec.getEncoding())
+          font.save(dst)
+          print("SimHei alias font written:", dst)
+          EOF
           fc-cache -f
           rm -rf "$HOME/.cache/matplotlib"
+          fc-list | grep -iE "noto sans sc|simhei" || true
+
+      # 仓库提交的 workspace/runs/default 缺少两个关键中间表
+      # （selected_rule_daily_positions 和 composite_strategy_daily，作者本地生成后从未提交），
+      # update 的历史前缀校验解析不到它们会直接报错退出。
+      # 首次运行时用 selected-rules 子命令从已提交的数据确定性补算一次；
+      # 补算后文件即存在，后续运行自动跳过本步骤。
+      - name: Bootstrap missing artifacts (first run only)
+        run: |
+          if [ ! -f "workspace/runs/default/results/selected_single_factor_rules/selected_rule_daily_positions.parquet" ] \
+          && [ ! -f "workspace/runs/default/results/selected_single_factor_rules/selected_rule_daily_positions.csv" ]; then
+            echo "首次运行：补算 selected_rule_daily_positions / composite_strategy_daily"
+            python scripts/run_pipeline.py selected-rules --input-dir workspace/runs/default
+          else
+            echo "关键表已存在，跳过补算"
+          fi
 
       # 本仓库是 YuanZhaohan/factor-timing-advisor 的 fork，dududu 每天把最新 CSV
       # 传到上游仓库。定时/手动运行时先从上游拉最新 CSV 再跑；失败则退回用本仓库已提交的 CSV。
