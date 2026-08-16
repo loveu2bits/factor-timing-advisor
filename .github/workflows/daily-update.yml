@@ -6,9 +6,9 @@ on:
     paths:
       - 'workspace/data/宽基得分.csv'
   schedule:
-    # 每天凌晨 03:00 北京时间（UTC 前一天 19:00）
+    # 每天 08:00 北京时间（UTC 前一天 00:00）
     # 注意：GitHub 定时任务排队可能延迟几分钟到十几分钟，属正常现象
-    - cron: '0 19 * * *'
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 # 结果需要提交回 main，并发布 GitHub Pages
