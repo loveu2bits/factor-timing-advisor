@@ -1,0 +1,3 @@
+﻿strategy_id,strategy_role,weighting,rebalance,open_rule,close_rule,execution
+two_speed_category_strong0p25,primary,four_categories_equal_25pct_then_equal_within_category,weekly_anchor_plus_daily_strong_event,weekly_score>0 or daily_score>=0.25,weekly_score<=0 or daily_score<=-0.25,next_trading_day
+entry_frequency_inverse_sqrt_weekly_binary,challenger,normalized_inverse_sqrt_training_entry_frequency,weekly_anchor_plus_daily_strong_event,weekly_score>0 or daily_score>=0.25,weekly_score<=0 or daily_score<=-0.25,next_trading_day
