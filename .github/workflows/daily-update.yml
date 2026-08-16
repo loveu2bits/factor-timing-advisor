@@ -1,0 +1,110 @@
+name: daily-update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workspace/data/宽基得分.csv'
+  schedule:
+    # 每个工作日 17:30 北京时间（09:30 UTC）兜底跑一次
+    # 注意：GitHub 定时任务排队可能有数分钟延迟，属正常现象
+    - cron: '30 9 * * 1-5'
+  workflow_dispatch:
+
+# 结果需要提交回 main，并发布 GitHub Pages
+permissions:
+  contents: write
+
+# 同一时间只允许一个日更任务，避免并发提交冲突
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.lock.txt
+
+      # runtime 里 matplotlib 字体配置为 ["Microsoft YaHei", "SimHei", "Noto Sans SC"]，
+      # Ubuntu 默认没有这些字体，需安装 Noto Sans SC 并清掉 matplotlib 字体缓存，
+      # 否则 PNG 图表中文会变成方块。
+      - name: Install Chinese fonts for matplotlib
+        run: |
+          mkdir -p "$HOME/.local/share/fonts"
+          curl -fsSL -o "$HOME/.local/share/fonts/NotoSansSC-Regular.otf" \
+            https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
+          curl -fsSL -o "$HOME/.local/share/fonts/NotoSansSC-Bold.otf" \
+            https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/SubsetOTF/SC/NotoSansSC-Bold.otf
+          fc-cache -f
+          rm -rf "$HOME/.cache/matplotlib"
+
+      # 本仓库是 YuanZhaohan/factor-timing-advisor 的 fork，dududu 每天把最新 CSV
+      # 传到上游仓库。定时/手动运行时先从上游拉最新 CSV 再跑；失败则退回用本仓库已提交的 CSV。
+      # push 触发说明 CSV 是直接推到本仓库的，跳过同步。
+      - name: Sync input CSV from upstream
+        if: github.event_name != 'push'
+        run: |
+          URL="https://raw.githubusercontent.com/YuanZhaohan/factor-timing-advisor/main/workspace/data/%E5%AE%BD%E5%9F%BA%E5%BE%97%E5%88%86.csv"
+          curl -fsSL -o "workspace/data/宽基得分.csv" "$URL" \
+            || echo "::warning::上游 CSV 拉取失败，使用本仓库已提交的 CSV"
+          ls -la workspace/data/
+
+      - name: Run daily update
+        run: python scripts/run_pipeline.py update
+
+      # CSV 没有新交易日时 update 正常返回（no_new_rows），只有审计文件变动；
+      # 没有变化时跳过提交。
+      - name: Commit updated results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workspace/runs/default "workspace/data/宽基得分.csv"
+          if git diff --cached --quiet; then
+            echo "结果无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore: daily timing update $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push origin main
+
+      - name: Show latest advisor summary
+        if: success() || failure()
+        run: head -n 50 workspace/runs/default/results/report/advisor_summary.md || true
+
+      - name: Prepare report site
+        if: success()
+        run: |
+          mkdir -p _site
+          cp workspace/runs/default/results/report/timing_report.html _site/index.html
+
+      - name: Upload Pages artifact
+        if: success()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: update
+    if: success()
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy report to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
