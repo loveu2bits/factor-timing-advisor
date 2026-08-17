@@ -11,7 +11,7 @@
     "scripts/run_pipeline.py": "f2aba7c5e3d73b6e822cfa57e44551f0608d717550d804743cabbbb5ec9aad23"
   },
   "csv_path": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/data/宽基得分.csv",
-  "finished_at_utc": "2026-08-16T05:13:09.821366+00:00",
+  "finished_at_utc": "2026-08-17T00:28:12.463926+00:00",
   "input_diff": {
     "added_dates": [],
     "added_rows": 0,
@@ -230,7 +230,7 @@
     "size": 4553764
   },
   "run_dir": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/runs/default",
-  "session_id": "20260816_051309_256715",
-  "started_at_utc": "2026-08-16T05:13:09.256746+00:00",
+  "session_id": "20260817_002812_010310",
+  "started_at_utc": "2026-08-17T00:28:12.010335+00:00",
   "status": "no_new_rows"
 }
