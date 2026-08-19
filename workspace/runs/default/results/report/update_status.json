@@ -11,48 +11,13 @@
     "scripts/run_pipeline.py": "f2aba7c5e3d73b6e822cfa57e44551f0608d717550d804743cabbbb5ec9aad23"
   },
   "csv_path": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/data/宽基得分.csv",
-  "finished_at_utc": "2026-08-18T00:30:30.955178+00:00",
-  "historical_prefix_checks": {
-    "baseline_strategy_equity": {
-      "fingerprint": "de3692e22a674ee6e49678bbd92c90ec2b5f5bafdd56df0fe9ca4d465e785cb5",
-      "rows": 1689,
-      "unchanged": true
-    },
-    "composite_strategy_daily": {
-      "fingerprint": "30797f152d1b93e79e060bde7f70e2245a571ef39009bfa7f0fbaa310f3964a2",
-      "rows": 4838,
-      "unchanged": true
-    },
-    "input_snapshot": {
-      "fingerprint": "966e5ee6810d3a17576407fb60780bbfc0b2557152c5d6c1558901eb90344801",
-      "rows": 2419,
-      "unchanged": true
-    },
-    "score": {
-      "fingerprint": "357d1aa5f3323196a310c344b09a55db804ebeb99cec5c2ce5fb7f6059a048db",
-      "rows": 1689,
-      "unchanged": true
-    },
-    "selected_rule_positions": {
-      "fingerprint": "db0f233959c1b0dd146da0ad8a69acfb07c60694e64642e9b0f5f50c33dd52fc",
-      "rows": 36285,
-      "unchanged": true
-    },
-    "signals": {
-      "fingerprint": "63088a278ba889c8d3009714950d46db0dc00df66e1f731c7e3d2fc518ce9b91",
-      "rows": 794250,
-      "unchanged": true
-    }
-  },
+  "finished_at_utc": "2026-08-19T00:28:37.859193+00:00",
   "input_diff": {
-    "added_dates": [
-      "2026-08-14",
-      "2026-08-17"
-    ],
-    "added_rows": 2,
-    "baseline_fingerprint": "966e5ee6810d3a17576407fb60780bbfc0b2557152c5d6c1558901eb90344801",
-    "baseline_latest_date": "2026-08-13",
-    "baseline_rows": 2419,
+    "added_dates": [],
+    "added_rows": 0,
+    "baseline_fingerprint": "adbda3da807df15cb9f48df33a9427db4b798652022f91eb45f224308b1768ff",
+    "baseline_latest_date": "2026-08-17",
+    "baseline_rows": 2421,
     "changed_examples": [
       {
         "baseline": -3.113577844469063,
@@ -254,31 +219,6 @@
       "size": 18443028
     }
   },
-  "pipeline_stats": {
-    "advisor_scored_rows": 6204,
-    "best_equity_rows": 1691,
-    "best_rule_pair_rows": 0,
-    "composite_daily_rows": 4842,
-    "composite_latest_status_rows": 2,
-    "composite_rule_weight_rows": 15,
-    "composite_strategy_count": 2,
-    "composite_summary_rows": 2,
-    "composite_trade_rows": 164,
-    "daily_score_rows": 1691,
-    "equity_curve_rows": 0,
-    "event_summary_rows": 73843,
-    "plot_count": 32,
-    "rule_pair_refreshed": 0,
-    "selected_rule_count": 15,
-    "selected_rule_position_rows": 36315,
-    "selected_rule_status_rows": 15,
-    "selected_rule_summary_rows": 15,
-    "selected_rule_trade_rows": 596,
-    "signals": 794865,
-    "strategy_summary_rows": 315,
-    "trade_summary_rows": 0,
-    "utility_rows": 10549
-  },
   "policy": "append_only_freeze_history",
   "python": {
     "executable": "/opt/hostedtoolcache/Python/3.13.15/x64/bin/python",
@@ -290,7 +230,7 @@
     "size": 4557541
   },
   "run_dir": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/runs/default",
-  "session_id": "20260818_002833_296851",
-  "started_at_utc": "2026-08-18T00:28:33.296874+00:00",
-  "status": "success"
+  "session_id": "20260819_002837_326308",
+  "started_at_utc": "2026-08-19T00:28:37.326339+00:00",
+  "status": "no_new_rows"
 }
