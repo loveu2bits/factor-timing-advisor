@@ -2,8 +2,8 @@
 
 | 角色 | 策略 | 日期 | 日度/复合分数 | 周频锚分数 | 仓位 | 状态 |
 |---|---|---|---:|---:|---:|---|
-| primary | `two_speed_category_strong0p25` | 2026-08-20 | 0.5833 | 0.5833 | 100% | long |
-| challenger | `entry_frequency_inverse_sqrt_weekly_binary` | 2026-08-20 | 0.5037 | 0.5037 | 100% | long |
+| primary | `two_speed_category_strong0p25` | 2026-08-21 | 0.5833 | 0.5833 | 100% | long |
+| challenger | `entry_frequency_inverse_sqrt_weekly_binary` | 2026-08-21 | 0.5037 | 0.5037 | 100% | long |
 
 - 主策略：四类因子各占 25%，周频锚定；日度分数达到 ±0.25 时在下一交易日提前调整。
 - 挑战者：规则权重与训练期年均开仓频率平方根倒数成正比；周频锚定，日度分数达到 ±0.25 时提前调整。
