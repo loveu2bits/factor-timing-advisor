@@ -11,213 +11,273 @@
     "scripts/run_pipeline.py": "f2aba7c5e3d73b6e822cfa57e44551f0608d717550d804743cabbbb5ec9aad23"
   },
   "csv_path": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/data/宽基得分.csv",
-  "finished_at_utc": "2026-08-25T00:29:41.455403+00:00",
+  "finished_at_utc": "2026-08-26T00:35:34.078037+00:00",
+  "historical_prefix_checks": {
+    "baseline_strategy_equity": {
+      "fingerprint": "95a63b9779909b41a077a6e285fe562094ac0574b6a950f890d42e3cc35c1fa6",
+      "rows": 1695,
+      "unchanged": true
+    },
+    "composite_strategy_daily": {
+      "fingerprint": "97ec5bbd9017ad3bda96c5bf324413e20b3ccdad6809d420f0b3b19e92ec7ee6",
+      "rows": 4850,
+      "unchanged": true
+    },
+    "input_snapshot": {
+      "fingerprint": "f285801c04ceabed18965fc403026f7f73c685cbf681345401bdaa571efdd341",
+      "rows": 2425,
+      "unchanged": true
+    },
+    "score": {
+      "fingerprint": "27906ebbd161e2a4519df71bd4170397dba949bead24beba4471021aa1796441",
+      "rows": 1695,
+      "unchanged": true
+    },
+    "selected_rule_positions": {
+      "fingerprint": "87cec706f4dac650712fbd8e17a4fc72111e193675002f2ed93fcd628d3c1ed0",
+      "rows": 36375,
+      "unchanged": true
+    },
+    "signals": {
+      "fingerprint": "a59dc8bdb93e4c2d3877149ac55422e11b9411bf481c00b4a567d84efd5bc194",
+      "rows": 796045,
+      "unchanged": true
+    }
+  },
   "input_diff": {
-    "added_dates": [],
-    "added_rows": 0,
+    "added_dates": [
+      "2026-08-24",
+      "2026-08-25"
+    ],
+    "added_rows": 2,
     "baseline_fingerprint": "f285801c04ceabed18965fc403026f7f73c685cbf681345401bdaa571efdd341",
     "baseline_latest_date": "2026-08-21",
     "baseline_rows": 2425,
     "changed_examples": [
       {
-        "baseline": -2.931680387292521,
+        "baseline": 0.4117947202944051,
         "column": "技术得分",
-        "raw": -2.931680387298744,
+        "raw": 0.4117861177280596,
         "代码": "000985.CSI",
-        "日期": "2018-02-05T00:00:00"
+        "日期": "2017-06-20T00:00:00"
       },
       {
-        "baseline": -3.3287704167914725,
+        "baseline": -0.1603613989840641,
         "column": "技术得分",
-        "raw": -3.328770416841232,
+        "raw": -0.1603829109859828,
         "代码": "000985.CSI",
-        "日期": "2018-02-06T00:00:00"
+        "日期": "2017-06-21T00:00:00"
       },
       {
-        "baseline": -2.5398942962380726,
+        "baseline": -0.7236078870584728,
         "column": "技术得分",
-        "raw": -2.5398942962911697,
+        "raw": -0.7236262804428328,
         "代码": "000985.CSI",
-        "日期": "2018-02-07T00:00:00"
+        "日期": "2017-06-22T00:00:00"
       },
       {
-        "baseline": -2.200743778803512,
+        "baseline": -1.0346232485862772,
         "column": "技术得分",
-        "raw": -2.200743778862976,
+        "raw": -1.0346420544870794,
         "代码": "000985.CSI",
-        "日期": "2018-02-08T00:00:00"
+        "日期": "2017-06-23T00:00:00"
       },
       {
-        "baseline": -2.2870561375787988,
+        "baseline": -0.564697443249085,
         "column": "技术得分",
-        "raw": -2.287056139717622,
+        "raw": -0.5647228628582526,
         "代码": "000985.CSI",
-        "日期": "2018-02-09T00:00:00"
+        "日期": "2017-06-26T00:00:00"
       },
       {
-        "baseline": -1.592047720736849,
+        "baseline": -0.7168947558117645,
         "column": "技术得分",
-        "raw": -1.5920477216349354,
+        "raw": -0.7169112279427359,
         "代码": "000985.CSI",
-        "日期": "2018-02-12T00:00:00"
+        "日期": "2017-06-27T00:00:00"
       },
       {
-        "baseline": -0.95432351598524,
+        "baseline": -1.0614935577395912,
         "column": "技术得分",
-        "raw": -0.9543235158469195,
+        "raw": -1.0615125548316011,
         "代码": "000985.CSI",
-        "日期": "2018-02-13T00:00:00"
+        "日期": "2017-06-28T00:00:00"
       },
       {
-        "baseline": 0.3115802087639447,
+        "baseline": -0.9508205072588216,
         "column": "技术得分",
-        "raw": 0.3115802086687498,
+        "raw": -0.95084206745381,
         "代码": "000985.CSI",
-        "日期": "2018-02-14T00:00:00"
+        "日期": "2017-06-29T00:00:00"
       },
       {
-        "baseline": 1.7505382752944434,
+        "baseline": -0.4155248071542216,
         "column": "技术得分",
-        "raw": 1.7505382739475472,
+        "raw": -0.4155502548444914,
         "代码": "000985.CSI",
-        "日期": "2018-02-22T00:00:00"
+        "日期": "2017-06-30T00:00:00"
       },
       {
-        "baseline": 2.192333455829671,
+        "baseline": -0.5394061007192754,
         "column": "技术得分",
-        "raw": 2.1923334539995496,
+        "raw": -0.539435020830983,
         "代码": "000985.CSI",
-        "日期": "2018-02-23T00:00:00"
+        "日期": "2017-07-03T00:00:00"
       },
       {
-        "baseline": 2.7363967657526134,
+        "baseline": -0.6660081288065761,
         "column": "技术得分",
-        "raw": 2.7363967658218007,
+        "raw": -0.6660172128539532,
         "代码": "000985.CSI",
-        "日期": "2018-02-26T00:00:00"
+        "日期": "2017-07-04T00:00:00"
       },
       {
-        "baseline": 2.816785348906935,
+        "baseline": -0.3183255888780538,
         "column": "技术得分",
-        "raw": 2.8167853505253917,
+        "raw": -0.3183263125379393,
         "代码": "000985.CSI",
-        "日期": "2018-02-27T00:00:00"
+        "日期": "2017-07-05T00:00:00"
       },
       {
-        "baseline": 2.473690394506878,
+        "baseline": 0.260188497805884,
         "column": "技术得分",
-        "raw": 2.47369039644206,
+        "raw": 0.2601957610397482,
         "代码": "000985.CSI",
-        "日期": "2018-02-28T00:00:00"
+        "日期": "2017-07-06T00:00:00"
       },
       {
-        "baseline": 2.7032165326273296,
+        "baseline": 0.3899727158841619,
         "column": "技术得分",
-        "raw": 2.703216534529556,
+        "raw": 0.3899916895099359,
         "代码": "000985.CSI",
-        "日期": "2018-03-01T00:00:00"
+        "日期": "2017-07-07T00:00:00"
       },
       {
-        "baseline": 3.0100941130064185,
+        "baseline": 0.265876630898582,
         "column": "技术得分",
-        "raw": 3.010094114186053,
+        "raw": 0.2658886753447996,
         "代码": "000985.CSI",
-        "日期": "2018-03-02T00:00:00"
+        "日期": "2017-07-10T00:00:00"
       },
       {
-        "baseline": 2.8728851443241465,
+        "baseline": -0.1118399673241315,
         "column": "技术得分",
-        "raw": 2.872885143874795,
+        "raw": -0.1118291043210689,
         "代码": "000985.CSI",
-        "日期": "2018-03-05T00:00:00"
+        "日期": "2017-07-11T00:00:00"
       },
       {
-        "baseline": 3.3222987787478124,
+        "baseline": 0.1057630888386188,
         "column": "技术得分",
-        "raw": 3.322298778286684,
+        "raw": 0.1057752955071684,
         "代码": "000985.CSI",
-        "日期": "2018-03-06T00:00:00"
+        "日期": "2017-07-12T00:00:00"
       },
       {
-        "baseline": 2.6087218957494,
+        "baseline": 0.0186208056736706,
         "column": "技术得分",
-        "raw": 2.6087218956907487,
+        "raw": 0.0186362806201985,
         "代码": "000985.CSI",
-        "日期": "2018-03-07T00:00:00"
+        "日期": "2017-07-13T00:00:00"
       },
       {
-        "baseline": 1.6291705011176794,
+        "baseline": -0.3838283128686098,
         "column": "技术得分",
-        "raw": 1.6291705019065066,
+        "raw": -0.3837993694064396,
         "代码": "000985.CSI",
-        "日期": "2018-03-08T00:00:00"
+        "日期": "2017-07-14T00:00:00"
       },
       {
-        "baseline": 1.9866743358477448,
+        "baseline": -1.3682221997913206,
         "column": "技术得分",
-        "raw": 1.986674336979798,
+        "raw": -1.3681887903212024,
         "代码": "000985.CSI",
-        "日期": "2018-03-09T00:00:00"
+        "日期": "2017-07-17T00:00:00"
       }
     ],
-    "first_changed_date": "2018-02-05",
+    "first_changed_date": "2017-06-20",
     "ignored_backfill_rows": 0,
-    "ignored_history_changed_cells": 2519,
-    "ignored_history_changed_rows": 1536,
+    "ignored_history_changed_cells": 2744,
+    "ignored_history_changed_rows": 1620,
     "ignored_history_missing_rows": 0,
-    "last_changed_date": "2026-08-20",
-    "raw_latest_date": "2026-08-21",
-    "raw_rows": 2425,
-    "safe_fingerprint": "f285801c04ceabed18965fc403026f7f73c685cbf681345401bdaa571efdd341",
-    "safe_latest_date": "2026-08-21",
-    "safe_rows": 2425
+    "last_changed_date": "2026-08-21",
+    "raw_latest_date": "2026-08-25",
+    "raw_rows": 2427,
+    "safe_fingerprint": "a55b77ec7a457974b5a8fb93210a8535e6f60917d663687ea617f8b4ddfbbd07",
+    "safe_latest_date": "2026-08-25",
+    "safe_rows": 2427
   },
   "latest_dates": {
-    "baseline_strategy_equity": "2026-08-21",
-    "composite_strategy_daily": "2026-08-21",
-    "input_snapshot": "2026-08-21",
-    "score": "2026-08-21",
-    "selected_rule_positions": "2026-08-21",
-    "signals": "2026-08-21",
-    "timing_report": "2026-08-21"
+    "baseline_strategy_equity": "2026-08-25",
+    "composite_strategy_daily": "2026-08-25",
+    "input_snapshot": "2026-08-25",
+    "score": "2026-08-25",
+    "selected_rule_positions": "2026-08-25",
+    "signals": "2026-08-25",
+    "timing_report": "2026-08-25"
   },
   "mode": "append_only_incremental",
   "output_fingerprints": {
     "baseline_strategy_equity": {
       "path": "results/strategy/monthly_strategy_best_equity_default.parquet",
-      "sha256": "176d0ba19cab26fe5442375ef1d3f3698fa8c02f804812275f57495aa2f8db5c",
-      "size": 127722
+      "sha256": "029fed7f0ce2c23bf5c74e8278c31978c1d1760a2cc3a9f31fbbe48bca5867a4",
+      "size": 127901
     },
     "composite_strategy_daily": {
       "path": "results/composite_timing_strategies/composite_strategy_daily.parquet",
-      "sha256": "8b13069b63a7a4f2f7afe084b530c27bf5eaea91ee28440647972348abf149c7",
-      "size": 148629
+      "sha256": "34dcbe7d44560100d23454c3acae52be1ffdc44fd914ed8d8f2bdeaa21dcb24a",
+      "size": 148748
     },
     "input_snapshot": {
       "path": "data/input_snapshot.parquet",
-      "sha256": "5e73fb49d342d354d183ed2c3c012a9318364eadd27a94f51db442df032237c3",
-      "size": 2200326
+      "sha256": "0bdc7e6fedfa7f68cef1a8ea5fd87d7fa07b7d6718305994bafdcc96afc92f5a",
+      "size": 2201900
     },
     "score": {
       "path": "results/score/monthly_refresh_daily_score.parquet",
-      "sha256": "04bb1dd3e3e3a63870461d26c91a4f50fd3bd863f46697f88ce4a0d591f0bcfb",
-      "size": 212816
+      "sha256": "6d58d41000c15a13de7ce358c5327248cf1710da45d56026360e3cee5e97593a",
+      "size": 213165
     },
     "selected_rule_positions": {
       "path": "results/selected_single_factor_rules/selected_rule_daily_positions.parquet",
-      "sha256": "b64682a7474bc7066bff9ac88d0b0f354d5f29d3e526826c125a120de06b0531",
-      "size": 90342
+      "sha256": "3c237ee4bff291cda702979cab7c667a8bc6333889a0e1fd433e5d706c772d05",
+      "size": 90031
     },
     "signals": {
       "path": "results/signals/signals.parquet",
-      "sha256": "14e4921e4fb3ccdbb4818195c322d59d5d9270aed012520c48f0f4a156ea6017",
-      "size": 1247262
+      "sha256": "43bfabd3b23a24d0590826a02259fe783e128619b5028468077785e98debfb16",
+      "size": 1250851
     },
     "timing_report": {
       "path": "results/report/timing_report.html",
-      "sha256": "d524e04863f8dfec187ee4d0c67ac6b994c628c7a9de258dd54a6c975ec56a54",
-      "size": 18464396
+      "sha256": "39ece9642ba5ec0bf188df4e33c3e196e1044a6fdb3d0497e8669d2da2843a41",
+      "size": 18475549
     }
+  },
+  "pipeline_stats": {
+    "advisor_scored_rows": 6204,
+    "best_equity_rows": 1697,
+    "best_rule_pair_rows": 0,
+    "composite_daily_rows": 4854,
+    "composite_latest_status_rows": 2,
+    "composite_rule_weight_rows": 15,
+    "composite_strategy_count": 2,
+    "composite_summary_rows": 2,
+    "composite_trade_rows": 164,
+    "daily_score_rows": 1697,
+    "equity_curve_rows": 0,
+    "event_summary_rows": 73857,
+    "plot_count": 32,
+    "rule_pair_refreshed": 0,
+    "selected_rule_count": 15,
+    "selected_rule_position_rows": 36405,
+    "selected_rule_status_rows": 15,
+    "selected_rule_summary_rows": 15,
+    "selected_rule_trade_rows": 598,
+    "signals": 796545,
+    "strategy_summary_rows": 315,
+    "trade_summary_rows": 0,
+    "utility_rows": 10551
   },
   "policy": "append_only_freeze_history",
   "python": {
@@ -226,11 +286,11 @@
     "version": "3.13.15 (main, Aug  6 2026, 02:15:18) [GCC 13.3.0]"
   },
   "raw_file": {
-    "sha256": "8c1533bd7bf5ef2ca2dea1c8bd2ddce0775a7a227041d9dce2464159c7bb2247",
-    "size": 4565041
+    "sha256": "864232434e15f08c5551c90bfc60a6ca985abadbad1acce11ac01cc2e4a85393",
+    "size": 4568827
   },
   "run_dir": "/home/runner/work/factor-timing-advisor/factor-timing-advisor/workspace/runs/default",
-  "session_id": "20260825_002940_944181",
-  "started_at_utc": "2026-08-25T00:29:40.944209+00:00",
-  "status": "no_new_rows"
+  "session_id": "20260826_003109_975062",
+  "started_at_utc": "2026-08-26T00:31:09.975087+00:00",
+  "status": "success"
 }
