@@ -1,12 +1,12 @@
 {
-  "date": "2026-08-26",
+  "date": "2026-08-28",
   "primary": {
-    "日期": "2026-08-26",
+    "日期": "2026-08-28",
     "代码": "000985.CSI",
     "指数名称": "中证全指",
     "strategy_id": "two_speed_category_strong0p25",
     "strategy_role": "primary",
-    "composite_score": 0.75,
+    "composite_score": 0.583333333333,
     "weekly_anchor_score": 0.583333333333,
     "strong_event_threshold": 0.25,
     "exposure": 1.0,
@@ -16,12 +16,12 @@
     "latest_exit_date": "2026-07-13"
   },
   "challenger": {
-    "日期": "2026-08-26",
+    "日期": "2026-08-28",
     "代码": "000985.CSI",
     "指数名称": "中证全指",
     "strategy_id": "entry_frequency_inverse_sqrt_weekly_binary",
     "strategy_role": "challenger",
-    "composite_score": 0.733299544468,
+    "composite_score": 0.614564149018,
     "weekly_anchor_score": 0.503721624318,
     "strong_event_threshold": 0.25,
     "exposure": 1.0,
